@@ -1,0 +1,1 @@
+{"version":3,"sources":["scss\\style.scss"],"names":[],"mappings":"AAAA,CAAC,CAAC;EACE,MAAM,EAAE,CAAC;EACT,gBAAgB,EAAE,SAAS;CAC9B","file":"style.21be07c4.css","sourceRoot":"..\\src","sourcesContent":["* {\r\n    margin: 0;\r\n    background-color: burlywood;\r\n}"]}
