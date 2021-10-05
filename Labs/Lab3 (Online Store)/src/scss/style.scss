@@ -1,0 +1,169 @@
+// General Settings
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    // background-color: aqua;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: url('../img/cover.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 165px;
+    position: relative;
+}
+
+h1 {
+    padding: 10px;
+    background-color:cadetblue;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 65px 0 65px;
+
+    li{
+        list-style: none;
+        display: inline-block;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        span{
+            padding-left: 5px;
+        }
+
+        a {
+            padding: 8px;
+            background-color: limegreen;
+            text-decoration: dashed;
+        }
+
+        .cart box-icon{
+            
+            vertical-align: bottom;
+            font-size: 22px;
+            padding-right: 5px;
+
+            a {
+            background-color: crimson;
+            color: blueviolet ;
+            cursor: pointer;
+            text-decoration: none;
+            }
+        }
+    }
+}
+
+
+// specific classes
+
+.cover {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: rgba(152, 251, 152, 0.2)
+}
+
+
+.container, .products_section{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    padding-bottom: 6rem;
+    
+    .add_cart {
+        position: absolute;
+        width: 100%;
+        background-color: lawngreen;
+        transition: all 0.35s ease-in-out;
+        opacity: 0;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .image {
+        margin-right: 5px 20px 0 20px;
+        position: relative;
+        overflow: hidden;
+        
+        a {
+            padding: 2px;
+            background-color: lime;
+            text-decoration: dotted;
+        }
+
+        &:hover .cart1, &:hover .cart2, &:hover .cart3, &:hover .cart4 {
+                bottom: 50px;
+                opacity: 1;
+                padding: 10px;
+                text-decoration: none;
+            }
+    }
+
+}
+
+// __________________The Card Side
+
+.products_section {
+    max-width: 620px;
+    margin: 0 auto;
+    margin-top: 40px;
+
+    .products_header {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 3.4px solid lime;
+
+        .product_name {
+            width: 35%;
+        }
+
+        ._size {
+            width: 10%;
+        }
+
+        ._quantity {
+            width: 15%;
+            display: flex;
+            align-items: center;
+        }
+
+        ._price {
+            width: 20%;
+        }
+
+        ._total {
+            width: 5%;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+
+
+
+
+
