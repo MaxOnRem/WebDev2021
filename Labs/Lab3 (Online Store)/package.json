@@ -1,0 +1,21 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "An online Sneakers Store",
+  "main": "index.js",
+  "dependencies": {
+    "boxicons": "^2.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sneakers",
+    "sports",
+    "shoes",
+    "shoes"
+  ],
+  "author": "MaxRem",
+  "license": "ISC"
+}

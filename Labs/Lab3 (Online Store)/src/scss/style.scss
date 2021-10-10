@@ -1,5 +1,7 @@
 // General Settings
 
+$color50:  hsl(120, 100%, 50%);
+
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 }
 
 body {
-    // background-color: aqua;
+    background-color: rgb(200, 245, 194);
     box-sizing: border-box;
 }
 
@@ -22,7 +24,13 @@ header {
 
 h1 {
     padding: 10px;
-    background-color:cadetblue;
+    background-color: $color50;
+    border-radius: 40px;
+
+    a{
+        text-decoration: dashed;
+        
+    }
 }
 
 nav {
@@ -48,8 +56,9 @@ nav {
 
         a {
             padding: 8px;
-            background-color: limegreen;
+            background-color: rgb(167, 255, 5);
             text-decoration: dashed;
+            border-radius: 8px;
         }
 
         .cart box-icon{
@@ -59,8 +68,8 @@ nav {
             padding-right: 5px;
 
             a {
-            background-color: crimson;
-            color: blueviolet ;
+            background-color: bisque;
+            color: tomato ;
             cursor: pointer;
             text-decoration: none;
             }
@@ -85,7 +94,8 @@ nav {
 }
 
 
-.container, .products_section{
+.container, 
+.products-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -95,7 +105,7 @@ nav {
     .add_cart {
         position: absolute;
         width: 100%;
-        background-color: lawngreen;
+        background-color: lightgreen;
         transition: all 0.35s ease-in-out;
         opacity: 0;
         cursor: pointer;
@@ -109,12 +119,12 @@ nav {
         
         a {
             padding: 2px;
-            background-color: lime;
+            background-color: $color50;
             text-decoration: dotted;
         }
 
         &:hover .cart1, &:hover .cart2, &:hover .cart3, &:hover .cart4 {
-                bottom: 50px;
+                bottom: 58px;
                 opacity: 1;
                 padding: 10px;
                 text-decoration: none;
@@ -125,42 +135,92 @@ nav {
 
 // __________________The Card Side
 
-.products_section {
+.products-container {
     max-width: 620px;
+    justify-content: space-around;
     margin: 0 auto;
     margin-top: 40px;
-
-    .products_header {
+    
+    .products-container box-icon{
+        font-size: 25px;
+        color: $color50;
+        margin-left: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    .product-header {
         width: 100%;
+        max-width: 650px;
         display: flex;
-        justify-content: space-evenly;
-        border-bottom: 3.4px solid lime;
+        justify-content: flex-start;
+        border-bottom: 4px solid $color50;
+        margin: 0 auto;
 
-        .product_name {
-            width: 35%;
+        .product-title {
+            width: 45%;
         }
 
-        ._size {
-            width: 10%;
-        }
-
-        ._quantity {
+        .price {
             width: 15%;
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid $color50;
+        }
+
+        .quantity {
+            width: 30%;
+            border-bottom: 4px solid $color50;
             display: flex;
             align-items: center;
         }
 
-        ._price {
-            width: 20%;
-        }
-
-        ._total {
-            width: 5%;
+        .total {
+            width: 45%;
+            border-bottom: 1px, solid $color50;
             display: flex;
             align-items: center;
         }
     }
 }
+
+.product {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 4px solid $color50;
+
+    .product box-icon {
+        cursor: pointer;
+    }
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .product img {
+        width: 75%;
+    }
+}
+
+.basketTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+
+    .basketTotalTitle {
+        width: 30%;
+    }
+
+    .basketTotal {
+        width: 10%;
+    }
+}
+
 
 
 

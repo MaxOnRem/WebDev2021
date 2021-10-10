@@ -1,37 +1,36 @@
 // console.log("Hi there!");
 
-let Carts = document.querySelectorAll('.add_cart');
-
+let carts = document.querySelectorAll('.add_cart');
 
 // The list of Our Sneakers is:
-
-let listProducts = [
+let products = [
     {
-        name: Sneakers1,
-        tag: 'sneakers1',
+        name: "First_Sample",
+        tag: "sneakers1",
         price: 40,
-        size: 39,
+        // size: 39,
+// In the beginning there's nothing in the cart, so then inCart: 0 to each item
         inCart: 0
     },
     {
-        name: Sneakers2,
-        tag: 'sneakers2',
+        name: "Second_Sample",
+        tag: "sneakers2",
         price: 35,
-        size: 41,
+        // size: 41,
         inCart: 0
     },
     {
-        name: Sneakers3,
-        tag: 'sneakers3',
+        name: "Third_Sample",
+        tag: "sneakers3",
         price: 45,
-        size: 42,
+        // size: 42,
         inCart: 0
     },
     {
-        name: Sneakers4,
-        tag: 'sneakers4',
+        name: "Fourth_Sample",
+        tag: "sneakers4",
         price: 50,
-        size: 40.5,
+        // size: 40.5,
         inCart: 0
     },
 ]; 
@@ -39,11 +38,11 @@ let listProducts = [
 
 // adding the EventListener looper to these carts (quantity)
 
-for (let q=0; q < Carts.length; q++) {
-    Carts[q].addEventListener('click', () => {
-        cartNumbers(listProducts[q]);
+for (let q=0; q < carts.length; q++) {
+    carts[q].addEventListener('click', () => {
+        cartNumbers(products[q]);
         // console.log("added to the cart when we clicked it");
-        totalCost(listProducts[q])
+        totalCost(products[q])
     })
 }
 
@@ -51,27 +50,27 @@ for (let q=0; q < Carts.length; q++) {
 // To remember the number of the products when reloading the page
 
 function onReloadCart() {
-    let goodsNumbers = localStorage.getItem('cartNumbers');
+    let productNumbers = localStorage.getItem('cartNumbers');
 
-    if (goodsNumbers) {
-        document.querySelector('.cart span').textContent = goodsNumbers;
+    if (productNumbers) {
+        document.getElementsByClassName('.cart span').textContent = productNumbers;
     }
 }
 
 
-function cartNumbers(listProducts) {
+function cartNumbers(product) {
 
     // Now we can find out which product did we click
-    // console.log("The product clicked is", listProducts)
+    console.log("The product clicked is", product);
 
-    let goodsNumbers = localStorage.getItem('cartNumbers');
+    let productNumbers = localStorage.getItem('cartNumbers');
 
-    goodsNumbers = parseInt(goodsNumbers);
+    productNumbers = parseInt(productNumbers);
 
 
-    if (goodsNumbers) {
-        localStorage.setItem('cartNumbers', goodsNumbers +1);
-        document.querySelector('.cart span').textContent = goodsNumbers + 1;
+    if (productNumbers) {
+        localStorage.setItem('cartNumbers', productNumbers +1);
+        document.querySelector('.cart span').textContent = productNumbers + 1;
     }
 
     else {
@@ -81,51 +80,48 @@ function cartNumbers(listProducts) {
     }
 
     
-    setItems(listProducts);
+    setItems(product);
 }
 
 
-function setItems(listProducts) {
+function setItems(product) {
 
-    // console.log("Inside of SetItems function");
-    // console.log("My product is", listProducts);
+    console.log("Inside of SetItems function");
+    console.log("My product is", product);
 
-    let CartItems = localStorage.getItem("ProductsInCart");
+    let cartItems = localStorage.getItem("productsInCart");
 
     // now we can pass JSON into a JS object
 
-    CartItems = JSON.parse(CartItems);
-    // console.log("My CartItems are", CartItems);
+    cartItems = JSON.parse(cartItems);
+    // console.log("My  artItems are", cartItems);
     
-    if(CartItems != null) {
+    if(cartItems != null) {
 
-        if(CartItems[listProducts.tag] == undefined) {
-            CartItems = { ...CartItems, [listProducts.tag]: listProducts
+        if(cartItems[product.tag] == undefined) {
+            cartItems = { ...cartItems, [product.tag]: product
             }
         }
 
-        CartItems[listProducts.tag].inCart += 1;
-    }
-    else {
-        listProducts.inCart = 1;
-        CartItems = {
-            [listProducts.tag]: listProducts
+        cartItems[product.tag].inCart += 1;
+    } else {
+        product.inCart = 1;
+        cartItems = {
+            [product.tag]: product 
         }
     }
-
-    localStorage.setItem("ProductsInCart",JSON.stringify(CartItems));
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
-
 
 
 // Calculating the total Cost of our Products
 
-function totalCost(listProducts) {
+function totalCost(product) {
 
-    // now we can see the price of the product when clicked
-    // console.log("The price of the product is", listProducts.price);
-
+    // Now we can see the price of the product when clicked
+    // console.log("The price of the product is", product.price);
     let cartCost = localStorage.getItem("totalCost");
+    // cartCost = parseInt(cartCost);
     
     // whenever we get smth back from the local Storage it comes as a String
     console.log("My cartCost is", cartCost);
@@ -134,53 +130,52 @@ function totalCost(listProducts) {
 
     if (cartCost != null) {
         cartCost = parseInt(cartCost);
-        localStorage.setItem("totalCost", cartCost + listProducts.price);
+        localStorage.setItem("totalCost", cartCost + product.price);
     }
     else {
-        localStorage.setItem("totalCost", listProducts.price);
+        localStorage.setItem("totalCost", product.price);
     }
 }
 
 // Cart Display
 
-function cartDisplay() {
-    let CartItems = localStorage.getItem("productsInCart")
-    CartItems - JSON.parse(CartItems);
-    let productSection = document.querySelector (".products");
+function displayCart() {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    
+    // console.log(cartItems);
+    let productContainer = document.querySelector(".products");
+    let cartCost = localStorage.getItem('totalCost');
+    // console.log(cartItems);
 
-
-    console.log(CartItems);
-
-    if(CartItems && productSection) {
-        // console.log("ishere");
-        productSection.innerHTML = '';
-        Object.values(CartItems).map(item => {
-            productSection.innerHTML += `
-            <div class="product_container">
-            <p>${item.number}</p>
-               <div class = "product">
-                   <div class="product_name">
-                   <img src="${item.img}"></img>
-                   <span>${item.title}</span>
-                   </div>
-               </div>
-               <div class = "price">${item.price}</div>
-               <div class = "quantity">
-                    <i class='bx bxs-left-arrow'></i>
-                    <span class="inCartItems">${item.inCart}</span>
-                    <i class='bx bxs-right-arrow'></i>
-               </div>
-               <div class="total">
-                   ${item.inCart * item.price}
-               </div>
-               <div class="remove-button">
-                    <i class='bx bxs-checkbox-minus bx-sm'></i>
-               </div>
-            
-            `
+    if (cartItems && productContainer) {
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map((item) => {
+            productContainer.innerHTML += `
+            <div class="product"
+                <i class='bx bxs-x-circle'></i>
+                <img src="./img/${item.tag}.jpg">
+                <span>${item.name}</span>
+            </div>
+            <div class="price">${item.price}</div>
+            <dic class="quantity">
+                <span>${item.inCart}</span>
+            </div>
+            <div class=""total>
+                ${item.inCart * item.price},00
+            </div>
+            `;
         });
+        productContainer.innerHTML  += `
+        <div class="basketTotalContainer">
+            <h4 class="basketTotalTitle">
+                Basket Total
+            </h4>
+            <h4 class="basketTotal">
+                $${cartCost}`
     }
 }
 
+
 onReloadCart();
-cartDisplay();
+displayCart();
