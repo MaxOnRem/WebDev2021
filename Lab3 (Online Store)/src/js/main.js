@@ -5,32 +5,32 @@ let carts = document.querySelectorAll('.add_cart');
 // The list of Our Sneakers is:
 let products = [
     {
-        name: "First_Sample",
+        name: "First",
         tag: "sneakers1",
         price: 40,
-        // size: 39,
+        sizze: 39,
 // In the beginning there's nothing in the cart, so then inCart: 0 to each item
         inCart: 0
     },
     {
-        name: "Second_Sample",
+        name: "Second",
         tag: "sneakers2",
         price: 35,
-        // size: 41,
+        size: 41,
         inCart: 0
     },
     {
-        name: "Third_Sample",
+        name: "Third",
         tag: "sneakers3",
         price: 45,
-        // size: 42,
+        size: 42,
         inCart: 0
     },
     {
-        name: "Fourth_Sample",
+        name: "Fourth",
         tag: "sneakers4",
         price: 50,
-        // size: 40.5,
+        size: 40.5,
         inCart: 0
     },
 ]; 
@@ -152,27 +152,34 @@ function displayCart() {
         productContainer.innerHTML = '';
         Object.values(cartItems).map((item) => {
             productContainer.innerHTML += `
-            <div class="product"
-                <i class='bx bxs-x-circle'></i>
-                <img src="./img/${item.tag}.jpg">
-                <span>${item.name}</span>
+            <div class="product">
+                <i id='remove'class='bx bxs-message-alt-x bx-md bx-rotate-270'></i>
+                <img src="src/img/${item.tag}.jpg">
             </div>
-            <div class="price">${item.price}</div>
-            <dic class="quantity">
+            <div class="price">$${item.price},00</div>
+            <div class="quantity">
+                <i id="quantity-dec" class='bx bxs-left-arrow bx-md' ></i>
                 <span>${item.inCart}</span>
+                <i id="quantity-inc" class='bx bxs-right-arrow bx-md'></i>
             </div>
-            <div class=""total>
-                ${item.inCart * item.price},00
+            <div class="total">
+                $${item.inCart * item.price},00
             </div>
             `;
         });
         productContainer.innerHTML  += `
         <div class="basketTotalContainer">
             <h4 class="basketTotalTitle">
-                Basket Total
+                Total before payment
+            </h4>
+            <h4 class="basketTotalArrows">
+                ---------->
             </h4>
             <h4 class="basketTotal">
-                $${cartCost}`
+                $${cartCost},00
+            </h4>`
+            
+            
     }
 }
 

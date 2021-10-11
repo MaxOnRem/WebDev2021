@@ -136,63 +136,71 @@ nav {
 // __________________The Card Side
 
 .products-container {
-    max-width: 620px;
+    max-width: 720px;
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 40px;
-    
-    .products-container box-icon{
-        font-size: 25px;
-        color: $color50;
-        margin-left: 10px;
+
+    #remove{
+        margin-left: 0px;
         margin-right: 10px;
         cursor: pointer;
     }
+    
+    
     .product-header {
         width: 100%;
-        max-width: 650px;
+        max-width: 720px;
         display: flex;
         justify-content: flex-start;
         border-bottom: 4px solid $color50;
         margin: 0 auto;
 
         .product-title {
-            width: 45%;
+            width: 40%;
         }
 
         .price {
             width: 15%;
             display: flex;
             align-items: center;
-            border-bottom: 4px solid $color50;
+            border-bottom: 4px solid rgb(33, 197, 12);
         }
+        // .size {
+        //     width: 20%;
+        //     display: flex;
+        //     align-items: center;
+        // }
 
         .quantity {
-            width: 30%;
+            width: 20%;
             border-bottom: 4px solid $color50;
             display: flex;
             align-items: center;
         }
 
         .total {
-            width: 45%;
+            width: 25%;
             border-bottom: 1px, solid $color50;
             display: flex;
             align-items: center;
+            border-bottom: 8px dotted darkslateblue;
         }
     }
 }
 
+
 .product {
-    width: 45%;
+    width: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
     border-bottom: 4px solid $color50;
-
-    .product box-icon {
-        cursor: pointer;
+    
+    .price{
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -202,11 +210,33 @@ nav {
     flex-wrap: wrap;
 
     .product img {
-        width: 75%;
+        width: 110px;
+        height: 75px;
+        // margin-right: 25px;
+    }
+    .price {
+        width: 15%;
+        border-bottom: 4px solid $color50;
+        align-items: center;
+        justify-content: center;
+    }
+    .quantity {
+        width: 20%;
+        border-bottom: 4px solid $color50;
+        #quantity-inc{
+            cursor: pointer;
+        }
+        #quantity-dec{
+            cursor: pointer;
+        }
+    }
+    .total {
+        border-bottom: 4px solid $color50;
     }
 }
 
 .basketTotalContainer {
+    background-color: $color50;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -215,9 +245,12 @@ nav {
     .basketTotalTitle {
         width: 30%;
     }
+    .basketTotalArrows{
+        width: 22%;
+    }
 
     .basketTotal {
-        width: 10%;
+        width: 15%;
     }
 }
 
