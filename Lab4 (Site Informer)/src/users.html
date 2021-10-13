@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scss/style.scss">
+    <title>UsersFetchApi Sample</title>
+</head>
+<body>
+    <section class="info">
+        <button id="user" onclick="UsersInfo()">User Info</button>
+        <div id="results"></div>
+        <img src="../src/img/users.jpg " width="780px" alt="user">
+    </section>
+    
+</body>
+<script>
+    function UsersInfo(){
+        fetch('https://jsonplaceholder.typicode.com/users/1')
+        
+        .then(function(data){
+            return data.json()
+        })
+        .then(function(data){
+            let results = document.getElementById('results')
+            results.innerHTML = 
+                `<p>The name of the User: ${data.name}</p>
+                 
+                 <p>The address: city: ${data.address.city}, street: ${data.address.street}</p
+                 <p>Contacts: Phone Number: ${data.phone}, <br>email: ${data.email}</br></p>
+                 <p>Company: ${data.company.name}</p>`
+            console.log(data)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
+    }
+</script>
+</html>

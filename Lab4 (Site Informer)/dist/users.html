@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.a6dae8f7.css">
+    <title>UsersFetchApi Sample</title>
+</head>
+<body>
+    <section class="info">
+        <button id="user" onclick="UsersInfo()">User Info</button>
+        <div id="results"></div>
+        <img src="/users.4ad7d8cc.jpg" width="780px" alt="user">
+    </section>
+    
+</body>
+<script>function UsersInfo() {
+  fetch('https://jsonplaceholder.typicode.com/users/1').then(function (data) {
+    return data.json();
+  }).then(function (data) {
+    var results = document.getElementById('results');
+    results.innerHTML = "<p>The name of the User: ".concat(data.name, "</p>\n                 \n                 <p>The address: city: ").concat(data.address.city, ", street: ").concat(data.address.street, "</p\n                 <p>Contacts: Phone Number: ").concat(data.phone, ", <br>email: ").concat(data.email, "</br></p>\n                 <p>Company: ").concat(data.company.name, "</p>");
+    console.log(data);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}</script>
+</html>

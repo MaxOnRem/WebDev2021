@@ -1,20 +1,22 @@
 {
-  "name": "shop",
+  "name": "online-store",
   "version": "1.0.0",
-  "description": "An online Sneakers Store",
+  "description": "an online-store selling sneakers",
   "main": "index.js",
   "dependencies": {
     "boxicons": "^2.0.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel index.html"
   },
   "keywords": [
-    "sneakers",
-    "sports",
-    "shoes",
-    "shoes"
+    "shop",
+    "online",
+    "store",
+    "sneakers"
   ],
   "author": "MaxRem",
   "license": "ISC"

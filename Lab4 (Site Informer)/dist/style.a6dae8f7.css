@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Delius Unicase", cursive;
+  background-image: url("https://source.unsplash.com/1600x900/?weather");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.weather-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 15px 15px;
+}
+header input {
+  width: 100%;
+  max-width: 380px;
+  height: 60px;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.76);
+  border-radius: 16px 0 16px 0;
+  border-bottom: 3px solid #DF8E00;
+  color: #313131;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.2s ease-out;
+}
+header input:focus {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+main {
+  flex: 1 1 100%;
+  padding: 25px 25px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+main .location .city {
+  color: #DF8E00;
+  background-color: #d4ffa8;
+  border-radius: 7px;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+main .location .date {
+  color: #fff;
+  font-size: 16px;
+  background-color: rgba(160, 43, 97, 0.42);
+  border-radius: 0 8px 0 8px;
+  padding: 8px;
+}
+main .current .temp {
+  color: #fff;
+  font-size: 102px;
+  font-weight: 900;
+  margin: 30px 0px;
+  text-shadow: 2px 12px rgba(0, 0, 0, 0.7);
+}
+main .current .temp span {
+  font-weight: 500;
+}
+main .current .weather-ico {
+  background-color: rgba(57, 255, 212, 0.3);
+  border-radius: 50%;
+}
+main .current .description {
+  color: #fff;
+  background-color: rgba(154, 163, 161, 0.8);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .current .weather {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 1200;
+  text-shadow: 5px 2px rgba(0, 0, 0, 0.9);
+  padding: 16px;
+}
+main .current .humidity {
+  color: #fff;
+  font-style: italic;
+  font-size: 25px;
+  background-color: rgba(57, 255, 212, 0.8);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+main .current .hi-low {
+  background-color: rebeccapurple;
+  font-size: 34px;
+  font-weight: 500;
+  padding: 4px;
+}
+
+.local-source {
+  background-color: #fda7a7;
+  font-size: larger;
+  margin: 41px;
+  padding: 5px;
+}
+.local-source a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.users {
+  background-color: #fda7a7;
+  font-size: larger;
+  font-weight: 700;
+  margin: 41px;
+  padding: 5px;
+}
+.users a {
+  text-decoration: none;
+  color: #045a45;
+}
+
+.info #user {
+  background-color: #36A9AE;
+  border: 5px double #2A8387;
+  border-radius: 8px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-size: 37px;
+  line-height: 100%;
+  padding: 11px 15px 12px;
+  text-align: center;
+  width: 100%;
+}
+.info #results {
+  background-color: #fff;
+  color: #724903;
+  font-size: 20px;
+  padding: 5px;
+}
+
+/*# sourceMappingURL=/style.a6dae8f7.css.map */

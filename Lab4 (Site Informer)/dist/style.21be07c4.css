@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Delius Unicase', cursive;
+  background-image: url("https://source.unsplash.com/1600x900/?nature");
+}
+
+
+/*# sourceMappingURL=/style.21be07c4.css.map */

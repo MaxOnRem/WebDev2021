@@ -117,83 +117,70 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/main.js":[function(require,module,exports) {
+// OpenWeather Source
+var api = {
+  key: "2a11a1d5bd46885d6d9b3a2da86d6b8a",
+  baseurl1: "http://api.openweathermap.org/data/2.5/"
+};
+var search_box = document.querySelector('.search-box');
+search_box.addEventListener('keypress', setQuery);
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function setQuery(event) {
+  if (event.keyCode == 13) {
+    getResults(search_box.value);
+    console.log(search_box.value);
   }
-
-  return bundleURL;
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
+function getResults(query) {
+  fetch("".concat(api.baseurl1, "weather?q=").concat(query, "&units=metric&APPID=").concat(api.key)).then(function (weather) {
+    return weather.json();
+  }).then(displayResults);
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+function displayResults(weather) {
+  console.log(weather);
+  var city = document.querySelector('.location .city');
+  city.innerHTML = "".concat(weather.name, ", ").concat(weather.sys.country);
+  var now = new Date();
+  var date = document.querySelector('.location .date');
+  date.innerHTML = dateBuilder(now);
+  var temp = document.querySelector('.current .temp');
+  temp.innerHTML = "".concat(Math.round(weather.main.temp), "<span>\xB0C</span>");
+  var weather_ico = document.querySelector('.current .weather-ico');
+  weather_ico.innerHTML = "<img width='75px'src='http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png'>";
+  var desc = document.querySelector('.current .description');
+  desc.innerHTML = "Description: " + weather.weather[0].description;
+  var weather_el = document.querySelector('.current .weather');
+  weather_el.innerText = weather.weather[0].main;
+  var humidity = document.querySelector('.humidity');
+  humidity.innerHTML = "Humidity: ".concat(weather.main.humidity, "%");
+  var hi_low = document.querySelector('.hi-low');
+  hi_low.innerHTML = "Feels like between ".concat(Math.round(weather.main.temp_min), "\xB0C / ").concat(Math.round(weather.main.temp_max), "\xB0C");
 }
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+function dateBuilder(dt) {
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var day = days[dt.getDay()];
+  var date = dt.getDate();
+  var month = months[dt.getMonth()];
+  var year = dt.getFullYear();
+  return "".concat(day, " ").concat(date, " ").concat(month, " ").concat(year);
+} // JSONplaceholder source
+// Local Source
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
 
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/style.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
-"use strict";
-
-require("../scss/style.scss");
-},{"../scss/style.scss":"scss/style.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var url3 = "data.json";
+var res3;
+fetch(url3).then(function (response) {
+  return response.json();
+}).then(function (r) {
+  res3 = r;
+  console.log(res3);
+});
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -221,7 +208,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49176" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59453" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

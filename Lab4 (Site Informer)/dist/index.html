@@ -4,18 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.a6dae8f7.css">
     <title>KnowTheWeather</title>
-<link rel="stylesheet" href="/main.fb6bbcaf.css"></head>
+<script src="/style.a6dae8f7.js"></script></head>
 <body>
     
-    <h1>Sources</h1>
+    <!-- <h1>Sources</h1>
 
-    <h2>Source1</h2>
-    <p id="place1"></p>
-    <h2>Source2</h2>
-    <p id="place2"></p>
-    <h2>Source3</h2>
-    <p id="place3"></p>
+    <h2>Source1 <a href="https://openweathermap.org/" target="_blank">OpenWeather</a></h2>
+    <p>Temperature: <span id="plc1"></span></p>
+    <p>min-Temp: <span id="plc2"></span></p>
+    <p>max-Temp: <span id="plc3"></span></p>
+    <p>Temp: <span id="plc4"></span></p>
+    <h2>Source2 <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON_Placeholder</a></h2>
+    <h3>Source3 </h3> -->
+
+    <div class="weather-app">
+        <header>
+            <input type="text" autocomplete="off" class="search-box" placeholder="Enter a City..">
+        </header>
+        <main>
+            <section class="location">
+                <div class="city">Lutsk, UA</div>
+                <div class="date">Tuesday 12 October 2021</div>
+            </section>
+            <div class="current">
+                <div class="temp">11<span>°C</span></div>
+                <div class="weather-ico"><img src="/clouds.3d65ab04.png" width="80px"></div>
+                <div class="description">Description: </div>
+                <div class="weather">Clouds</div>
+                <div class="humidity">Humidity: 63%</div>
+                <div class="hi-low">Feels like between 8°c / 13°c</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="users">
+        <p><a href="/users.html" target="_blank">2. Run to the Placeholder</a></p>
+    </div>
+
+    <div class="local-source">
+        <h3><a href="">3. Local JSON file</a></h3>
+    </div>
+
 
     <script src="/main.fb6bbcaf.js"></script>
 </body>
