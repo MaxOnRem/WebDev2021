@@ -168,8 +168,7 @@ function dateBuilder(dt) {
   var month = months[dt.getMonth()];
   var year = dt.getFullYear();
   return "".concat(day, " ").concat(date, " ").concat(month, " ").concat(year);
-} // JSONplaceholder source
-// Local Source
+} // Local Source
 
 
 var url3 = "data.json";
@@ -208,7 +207,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59453" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64879" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
