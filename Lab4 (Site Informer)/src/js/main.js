@@ -65,17 +65,6 @@ function dateBuilder (dt)
 
   return `${day} ${date} ${month} ${year}`;
 }
-
-
-// JSONplaceholder source
-
-
-
-
-
-
-
-
 // Local Source
 const url3 = "data.json"
 
