@@ -133,7 +133,7 @@ var products = [{
   name: "First",
   tag: "sneakers1",
   price: 40,
-  sizze: 39,
+  size: 39,
   // In the beginning there's nothing in the cart, so then inCart: 0 to each item
   inCart: 0
 }, {
@@ -280,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56221" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55876" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

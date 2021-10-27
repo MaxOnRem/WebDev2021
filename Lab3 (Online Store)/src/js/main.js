@@ -8,7 +8,7 @@ let products = [
         name: "First",
         tag: "sneakers1",
         price: 40,
-        sizze: 39,
+        size: 39,
 // In the beginning there's nothing in the cart, so then inCart: 0 to each item
         inCart: 0
     },
@@ -153,7 +153,7 @@ function displayCart() {
         Object.values(cartItems).map((item) => {
             productContainer.innerHTML += `
             <div class="product">
-                <i id='remove'class='bx bxs-message-alt-x bx-md bx-rotate-270'></i>
+                <button onclick="myFunction()" <i class='bx bxs-message-alt-x bx-md bx-rotate-270'></i></button>
                 <img src="src/img/${item.tag}.jpg">
             </div>
             <div class="price">$${item.price},00</div>
@@ -181,6 +181,11 @@ function displayCart() {
         </div>`;
     }
 }
+
+function myFunction() {
+    var myobj = document.getElementsByClassName("products");
+    myobj.remove();
+  }
 
 
 onReloadCart();
