@@ -1,0 +1,23 @@
+
+{
+    "data": [
+    {
+        "name": "Ярмарок",
+        "photo_link": "/assets/card1.jpg",
+        "shortDescription": "1) Трійцю найкрасивіших новорічних ярмарків замикає у зимовому містечку ВДНГ",
+        "info": "1) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia"
+    },
+    {
+        "name": "Смачна випічка",
+        "photo_link": "/assets/card2.jpg",
+        "shortDescription": "2) Величезна площа наповниться ароматами випічки та глінтвейну, шумом, сміхом. ",
+        "info": "2) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia"
+    },
+    {
+        "name": "Ялинка 2022" ,
+        "photo_link": "/assets/card3.jpg",
+        "shortDescription": "3) Цього року вогні на головній ялинці країни напередодні Дня святого Миколая.",
+        "info": "3) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia"
+    }
+]
+}
